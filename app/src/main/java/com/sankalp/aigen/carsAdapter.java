@@ -46,7 +46,7 @@ public class carsAdapter extends RecyclerView.Adapter<carsAdapter.ViewHolder> {
         carData carData = carDataList.get(position);
         holder.sellerName.setText("Model: "+carData.getSellerName());
         holder.carName.setText("Model: "+carData.getCarName());
-        holder.carCompany.setText("Phone: "+carData.getCarCompany());
+        holder.carCompany.setText("Comp: "+carData.getCarCompany());
         holder.carSeats.setText("Seats: "+carData.getCarSeats());
         holder.sellerContact.setText("Phone: "+carData.getSellerContact());
         holder.carPrice.setText(carData.carPrice);

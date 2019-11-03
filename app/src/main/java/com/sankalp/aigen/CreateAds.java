@@ -49,19 +49,41 @@ public class CreateAds extends AppCompatActivity {
         sellerContact = findViewById(R.id.textView12);
         carPrice = findViewById(R.id.textView13);
         urlX =findViewById(R.id.textView14);
+        urlX.setText("https://imgd.aeplcdn.com/1056x594/cw/ec/28286/BMW-X7-Right-Front-Three-Quarter-164106.jpg?wm=0");
         oneTimeWorkRequest2 = new OneTimeWorkRequest.Builder(workManagerInsert.class).setInitialDelay(1, TimeUnit.SECONDS).addTag("newWorker2").build();
+
 
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "We are inserting Data.", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+                if(sellerName.getText().toString().equals(""))
+                {
+                    sellerName.setError("please Enter Details");
+                }else if (carName.getText().toString().equals(""))
+                {
+                    carName.setError("please Enter Details");
+                }else if(carCompany.getText().toString().equals(""))
+                {
+                    carCompany.setError("please Enter Details");
+                }else if(carSeats.getText().toString().equals(""))
+                {
+                    carSeats.setError("please Enter Details");
+                }else if(sellerContact.getText().toString().equals(""))
+                {
+                    sellerContact.setError("please Enter Details");
+                }else if (urlX.getText().toString().equals(""))
+                {
+                    urlX.setError("please Enter Details");
+                }else {
 
-                  carData carData = new carData(sellerName.getText().toString(),carName.getText().toString(),carPrice.getText().toString(),carSeats.getText().toString(),carCompany.getText().toString(),sellerContact.getText().toString(),urlX.getText().toString());
-                cars.add(carData);
-                dataWire.setResultsDataWire(cars);
-               WorkManager.getInstance().beginWith(oneTimeWorkRequest2).enqueue();
+                    Snackbar.make(view, "We are inserting Data.", Snackbar.LENGTH_LONG)
+                            .setAction("Action", null).show();
+                    carData carData = new carData(sellerName.getText().toString(), carName.getText().toString(), carPrice.getText().toString(), carSeats.getText().toString(), carCompany.getText().toString(), sellerContact.getText().toString(), urlX.getText().toString());
+                    cars.add(carData);
+                    dataWire.setResultsDataWire(cars);
+                    WorkManager.getInstance().beginWith(oneTimeWorkRequest2).enqueue();
+                }
 
             }
         });

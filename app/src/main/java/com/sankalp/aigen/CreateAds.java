@@ -18,6 +18,7 @@ import androidx.work.WorkStatus;
 
 import android.os.Handler;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -26,13 +27,13 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 public class CreateAds extends AppCompatActivity {
-    TextView sellerName;
-    TextView carName;
-    TextView carPrice;
-    TextView carSeats;
-    TextView carCompany;
-    TextView sellerContact;
-    TextView urlX;
+    EditText sellerName;
+    EditText carName;
+    EditText carPrice;
+    EditText carSeats;
+    EditText carCompany;
+    EditText sellerContact;
+    EditText urlX;
     private OneTimeWorkRequest oneTimeWorkRequest2;
 
     List<carData> cars = new ArrayList<>();
